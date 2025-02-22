@@ -7,7 +7,7 @@ from core import models
 
 class UserAdmin(BaseUserAdmin):
     ordering = ['id']
-    list_display = ['username', 'email','name']
+    list_display = ['username', 'email', 'name']
     fieldsets = (
         (None, {'fields': ('username', 'email', 'password')}),
         (
@@ -35,7 +35,7 @@ class UserAdmin(BaseUserAdmin):
                 'is_active',
                 'is_staff',
                 'is_superuser',
-    )
+                )
         }),
     )
 

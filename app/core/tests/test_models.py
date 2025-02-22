@@ -30,7 +30,11 @@ class ModelTests(TestCase):
         ]
 
         for index, (email, expected) in enumerate(test_emails):
-            user = get_user_model().objects.create_user(email,f'testuser{index}','test123')
+            user = get_user_model().objects.create_user(
+                email,
+                f'testuser{index}',
+                'test123'
+                )
             self.assertEqual(user.email, expected)
             self.assertEqual(user.username, f'testuser{index}')
 
@@ -42,7 +46,11 @@ class ModelTests(TestCase):
     def test_new_user_without_username_raises_error(self):
 
         with self.assertRaises(ValueError):
-            get_user_model().objects.create_user('TesT@example.com', '', 'test123')
+            get_user_model().objects.create_user(
+                'TesT@example.com',
+                '',
+                'test123'
+                )
 
     def test_create_superuser(self):
 
